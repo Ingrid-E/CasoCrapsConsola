@@ -6,19 +6,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>434</x>
-      <y>28</y>
-      <w>70</w>
-      <h>21</h>
-    </coordinates>
-    <panel_attributes>SimpleClass</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>231</x>
-      <y>273</y>
+      <x>490</x>
+      <y>336</y>
       <w>154</w>
       <h>98</h>
     </coordinates>
@@ -36,8 +25,8 @@ void rollDice();
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>14</x>
-      <y>238</y>
+      <x>273</x>
+      <y>301</y>
       <w>147</w>
       <h>161</h>
     </coordinates>
@@ -61,8 +50,8 @@ void setGameState(int);
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>133</x>
-      <y>84</y>
+      <x>392</x>
+      <y>147</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -77,8 +66,8 @@ void main(String[]);</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>287</y>
+      <x>413</x>
+      <y>350</y>
       <w>91</w>
       <h>42</h>
     </coordinates>
@@ -89,8 +78,8 @@ dice1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>308</y>
+      <x>413</x>
+      <y>371</y>
       <w>91</w>
       <h>35</h>
     </coordinates>
@@ -102,8 +91,8 @@ dice2
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>105</x>
-      <y>140</y>
+      <x>364</x>
+      <y>203</y>
       <w>91</w>
       <h>105</h>
     </coordinates>
