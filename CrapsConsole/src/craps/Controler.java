@@ -1,3 +1,11 @@
+/**
+ * @file Controler.java
+ * @author Ingrid Echeverri Montoya 1943542
+ * @brief Class that controls the basics of the game.
+ * @version 0.1
+ * @date 2020-02-20
+ */
+
 package craps;
 import java.util.Scanner;
 import java.lang.String;
@@ -6,14 +14,17 @@ public class Controler {
 	private int point, gameState, pivot;
 	private Dice dice1, dice2;
 	
-	
+	/** @brief Constructor of Class*/
 	public Controler() {
 		this.setGameState(0);
 		this.setPoint(1);
 		this.dice1 = new Dice();
 		this.dice2 = new Dice();
 	};
-	
+	/**
+	 * @brief Method that starts the game, checks game state to see if the player 
+	 * has already won or lost, and interacts with the player to roll the dices.
+	 */
 	public void startGame(){
 		//Scanner class to read console input
 		Scanner console =  new Scanner(System.in);
@@ -65,8 +76,9 @@ public class Controler {
 		
 		
 	};
-	
-	//Method that rolls both dices.
+	/**
+	 * @brief Method that rolls both dices.
+	 */
 	public void rollDices(){
 		dice1.rollDice();
 		dice2.rollDice();
@@ -78,8 +90,10 @@ public class Controler {
 		}
 	}
 	
-	
-	//Checks point value and changed game state.
+	/**
+	 * @brief Checks point value and changed game state.
+	 * @return string Game point and point name.
+	 */
 	public String getPoint() {
 		//Game State 2 rolling again dices
 		if(this.getGameState() == 2) {
@@ -116,6 +130,9 @@ public class Controler {
 		}
 	}
 	
+	/**
+	 * @brief restarts the game if the player hasn't won or lost yet.
+	 */
 	public void restart() {
 		//Make player choose to keep playing or not
 		System.out.println("Yes: 1    No: 0");
@@ -134,15 +151,25 @@ public class Controler {
 		}
 	}
 
-	//Set base point value
+	/**
+	 * Set point value
+	 * @param point
+	 */
 	public void setPoint(int point) {
 		this.point = point;
 	}
-	//Get game state
+	/**
+	 * @brief returns game state value
+	 * @return int
+	 */
 	public int getGameState() {
 		return gameState;
 	}
-	//Set game state
+	 
+	/**
+	 * @brief Set game state.
+	 * @param gameState
+	 */
 	public void setGameState(int gameState) {
 		this.gameState = gameState;
 	};

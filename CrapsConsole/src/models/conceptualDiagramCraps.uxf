@@ -2,14 +2,14 @@
 <diagram program="umlet" version="14.3.0">
   <help_text>
 </help_text>
-  <zoom_level>8</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
-      <y>0</y>
-      <w>80</w>
-      <h>24</h>
+      <x>434</x>
+      <y>28</y>
+      <w>70</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>SimpleClass</panel_attributes>
     <additional_attributes/>
@@ -17,19 +17,100 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>128</y>
-      <w>176</w>
-      <h>96</h>
+      <x>231</x>
+      <y>273</y>
+      <w>154</w>
+      <h>98</h>
     </coordinates>
-    <panel_attributes>Dado
+    <panel_attributes>Dice
 --
-Punto
-int Resultado
+int sideValue;
 --
-Metodos:
-devolverCaraVisible(): int
+Dice();
+int getSideValue();
+void setSideValue(int);
+void rollDice();
 </panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>14</x>
+      <y>238</y>
+      <w>147</w>
+      <h>161</h>
+    </coordinates>
+    <panel_attributes>Controler
+--
+int point;
+int gameState;
+int pivot;
+--
+Controler();
+void startGame();
+void rollDices();
+String getPoint();
+void restart();
+void setPoint(int);
+int getGameState();
+void setGameState(int);
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>133</x>
+      <y>84</y>
+      <w>147</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Craps
+--
+
+--
+Craps();
+void main(String[]);</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>154</x>
+      <y>287</y>
+      <w>91</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+dice1</panel_attributes>
+    <additional_attributes>110.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>154</x>
+      <y>308</y>
+      <w>91</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+dice2
+</panel_attributes>
+    <additional_attributes>110.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>105</x>
+      <y>140</y>
+      <w>91</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+player
+
+</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;130.0</additional_attributes>
   </element>
 </diagram>
