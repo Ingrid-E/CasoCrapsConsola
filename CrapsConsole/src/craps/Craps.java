@@ -8,15 +8,19 @@
 
 package craps;
 
+import java.awt.EventQueue;
+
 public class Craps {
 	/**
 	 * @brief Main class, contains a controler object that starts the game in the console.
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Controler player = new Controler();
-		player.startGame();
+		EventQueue.invokeLater(new Runnable(){
+			@Override
+			public void run() {
+				Interface myWindow = new Interface();
+			}
+		});
 	}
-
 }
