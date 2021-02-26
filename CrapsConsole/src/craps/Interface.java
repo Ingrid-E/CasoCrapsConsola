@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -29,6 +30,7 @@ public class Interface extends JFrame implements ActionListener{
 		container.setLayout(new FlowLayout());
 		//Create an object that lisents
 		lisent = new Lisent();
+		gameControl = new Controler();
 		//Add graphic components 
 		image = new ImageIcon("src/images/dado.png");
 		dice1 = new JLabel(image);
@@ -60,15 +62,37 @@ public class Interface extends JFrame implements ActionListener{
 		public void actionPerformed(ActionEvent event) {
 			// TODO Auto-generated method stub
 			if(event.getSource() == roll) {
-				viewDice();
+				rollDices();
+				String rollResult = gameControl.getPoint();
+				Icon icon;
+				switch(gameControl.getGameState()) {
+				case 0:
+					icon = new ImageIcon("src/images/perdiste.png");
+					JOptionPane.showMessageDialog(roll, rollResult, "RESULT", 
+												  JOptionPane.DEFAULT_OPTION,icon);
+					break;
+				case 1:
+					icon = new ImageIcon("src/images/ganaste.png");
+					JOptionPane.showMessageDialog(roll, rollResult, "RESULT", 
+												  JOptionPane.DEFAULT_OPTION,icon);
+					break;
+				case 2:
+					String point = " You established a base " + rollResult + "\n"+
+					"Get the same number to win, but if you get 7 first you lose!";
+					icon = new ImageIcon("src/images/punto.png");
+					JOptionPane.showMessageDialog(roll, rollResult + point, "RESULT", 
+												  JOptionPane.DEFAULT_OPTION,icon);
+					break;
+				}
 			}
 		}
 	}
-	private void viewDice() {
-		diceOne.rollDice();
-		diceTwo.rollDice();
-		int firstDice = diceOne.getSideValue();
-		int secondDice = diceTwo.getSideValue();
+	
+	private void rollDices() {
+		gameControl = new Controler();
+		gameControl.rollDices();
+		int firstDice = gameControl.diceOnePoint;
+		int secondDice = gameControl.diceTwoPoint;
 		int rollValue = firstDice+secondDice;
 		image = new ImageIcon("src/images/"+firstDice+".png");
 		dice1.setIcon(image);

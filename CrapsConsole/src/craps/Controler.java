@@ -11,8 +11,10 @@ import java.util.Scanner;
 import java.lang.String;
 
 public class Controler {
-	private int point, gameState, pivot;
+	private int point, gameState;
 	private Dice dice1, dice2;
+	protected int pivot;
+	protected int diceOnePoint, diceTwoPoint;
 	
 	/** @brief Constructor of Class*/
 	public Controler() {
@@ -26,55 +28,13 @@ public class Controler {
 	 * has already won or lost, and interacts with the player to roll the dices.
 	 */
 	public void startGame(){
-		//Scanner class to read console input
-		Scanner console =  new Scanner(System.in);
-		
-		//Check if they are still rolling dices
-		if(this.gameState != 2) {
-			System.out.println("Welcome to Craps!");
-		}
-		
-		//Start game from 0
-		System.out.println("Roll Dices? y/n");
-		//Get Console response to roll dices.
-		String question = console.nextLine();
-		if(question.equals("y")) {
-			//Roll Dices
-			this.rollDices();
-		}
-		else if(question.equals("n")) {
-			System.out.println("See you later!");
-			System.exit(0);
-		}
-		else {
-			System.out.println("Error wrong letter");
-			System.exit(0);
-		}
-
-		//Print out points.
-		System.out.println("Dado 1 = " + dice1.getSideValue() + ", Dado 2 = " + dice2.getSideValue() + ", Base Point = " + this.point);
-		System.out.println(this.getPoint());
-
-		/* Get game status
-		 * 0 =  Lost Game
-		 * 1 = Won Game
-		 * 2 = Still in game, keep rolling.
-		 */
-		if(this.getGameState() == 0) {
-			System.out.println("You Lost! Try Again?");
-			this.restart();
+		if(this.gameState == 0) {
+			
+		}else if(this.gameState == 1) {
+			
+		}else {
 			
 		}
-		else if(this.getGameState() == 1) {
-			System.out.println("You Won! Play again?");
-			this.restart();
-		}
-		else {
-			this.startGame();
-		}
-		
-		
-		
 	};
 	/**
 	 * @brief Method that rolls both dices.
@@ -83,12 +43,16 @@ public class Controler {
 		dice1.rollDice();
 		dice2.rollDice();
 		//Add dice values
-		this.pivot = dice1.getSideValue() + dice2.getSideValue();
+		diceOnePoint = dice1.getSideValue();
+		diceTwoPoint = dice2.getSideValue();
+		this.pivot = diceOnePoint + diceTwoPoint;
 		//Change base point value if it is not rolling again in state 2
 		if(this.getGameState() != 2) {
 			this.setPoint(pivot);
 		}
 	}
+	
+	
 	
 	/**
 	 * @brief Checks point value and changed game state.
@@ -135,7 +99,7 @@ public class Controler {
 	 */
 	public void restart() {
 		//Make player choose to keep playing or not
-		System.out.println("Yes: 1    No: 0");
+		//System.out.println("Yes: 1    No: 0");
 		System.out.print("-> ");
 		//Console input option
 		Scanner anotherTry = new Scanner(System.in);
@@ -146,7 +110,7 @@ public class Controler {
 		}
 		//If player inputs 0 then game ends
 		else {
-			System.out.println("See you later!");
+			//System.out.println("See you later!");
 			System.exit(0);
 		}
 	}
