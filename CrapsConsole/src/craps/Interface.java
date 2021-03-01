@@ -1,7 +1,9 @@
 package craps;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.FlowLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,9 +14,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import com.sun.media.sound.Toolkit;
+
 public class Interface extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
-	private JLabel dice1, dice2;
+	private JLabel dice1, dice2, background;
+	private ImageIcon imgBackground;
 	private JButton roll;
 	private ImageIcon image;
 	private Lisent lisent;
@@ -26,8 +31,12 @@ public class Interface extends JFrame implements ActionListener{
 	 */
 	public Interface() {
 		//Window that contains game
+		JLabel contentPane = new JLabel();
+		contentPane.setIcon(new ImageIcon("src/images/GameBoard.png"));
+		contentPane.setLayout( new BorderLayout() );
+		this.setContentPane( contentPane );
+		
 		Container container = this.getContentPane();
-		container.setLayout(new FlowLayout());
 		//Create an object that lisents
 		lisent = new Lisent();
 		gameControl = new Controler();
@@ -39,16 +48,23 @@ public class Interface extends JFrame implements ActionListener{
 		roll = new JButton("Roll Dice");
 		roll.addActionListener(lisent);
 		
-		container.add(dice1);
-		container.add(dice2);
+		contentPane.add(dice2);
 		container.add(roll);
 		
 		this.setTitle("Craps Game");
-		this.setSize(350,210);
+		this.setSize(600,500);
 		//What does this do?
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//Add Craps custom background
+		
+		//imgBackground = new ImageIcon("src/images/GameBoard.png");
+		//background = new JLabel(imgBackground, JLabel.CENTER);
+		//background.setBounds(0,0,600,500);
+		//add(background);
+		
+		
 		this.setVisible(true);
 	}
 	@Override
