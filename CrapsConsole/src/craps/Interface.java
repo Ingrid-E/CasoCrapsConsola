@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import com.sun.media.sound.Toolkit;
+
 
 public class Interface extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
@@ -30,13 +30,9 @@ public class Interface extends JFrame implements ActionListener{
 	 * @about Default constructor
 	 */
 	public Interface() {
-		//Window that contains game
-		JLabel contentPane = new JLabel();
-		contentPane.setIcon(new ImageIcon("src/images/GameBoard.png"));
-		contentPane.setLayout( new BorderLayout() );
-		this.setContentPane( contentPane );
-		
+		//Window that contains game	
 		Container container = this.getContentPane();
+		container.setLayout(new FlowLayout());
 		//Create an object that lisents
 		lisent = new Lisent();
 		gameControl = new Controler();
@@ -44,11 +40,11 @@ public class Interface extends JFrame implements ActionListener{
 		image = new ImageIcon("src/images/dado.png");
 		dice1 = new JLabel(image);
 		dice2 = new JLabel(image);
-		
 		roll = new JButton("Roll Dice");
 		roll.addActionListener(lisent);
 		
-		contentPane.add(dice2);
+		container.add(dice1);
+		container.add(dice2);
 		container.add(roll);
 		
 		this.setTitle("Craps Game");
@@ -56,15 +52,7 @@ public class Interface extends JFrame implements ActionListener{
 		//What does this do?
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//Add Craps custom background
-		
-		//imgBackground = new ImageIcon("src/images/GameBoard.png");
-		//background = new JLabel(imgBackground, JLabel.CENTER);
-		//background.setBounds(0,0,600,500);
-		//add(background);
-		
-		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		this.setVisible(true);
 	}
 	@Override

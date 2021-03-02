@@ -19,7 +19,8 @@ public class Craps {
 		EventQueue.invokeLater(new Runnable(){
 			@Override
 			public void run() {
-				Interface myWindow = new Interface();
+				//Interface myWindow = new Interface();
+				GUI_View_GBL myWindow = new GUI_View_GBL()
 			}
 		});
 	}
